@@ -1,6 +1,6 @@
  // Requires C++20
-#include <version>
-#if defined(__cpp_lib_ranges)
+// #include <version>
+// #if defined(__cpp_lib_ranges)
 
 #include <gtest/gtest.h>
 
@@ -141,4 +141,4 @@ TEST(AlgorithmFeatures, LambdaProjections) {
   ASSERT_EQ(players.front().name, "Nao");
 }
 
-#endif // ranges
+// #endif // ranges

@@ -1,6 +1,6 @@
  // Requires C++20
-#include <version>
-#if defined(__cpp_lib_ranges)
+// #include <version>
+// #if defined(__cpp_lib_ranges)
 
 #include <gtest/gtest.h>
 
@@ -239,4 +239,4 @@ TEST(EverydayProblems, MinElement) {
   std::cout << std::distance(v.begin(), it); // Output: 3
 }
 
-#endif // ranges
+// #endif // ranges
