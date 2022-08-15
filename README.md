@@ -247,6 +247,20 @@ Or you can run all the examples using the command:
 $ ctest
 ```
 
+To run individual test of each tests, use the following command
+
+```
+Example:
+cd ~/build/Chapter05/ 
+./Chapter05-Algorithms --gtest_filter"Eve*"
+```
+
+To run all test suites of each folder, use the following command
+
+```
+cd ~/build/Chapter05
+./Chapter05-Algorithms
+```
 
 ### Step 5: Build and run benchmarks in Release mode
 
