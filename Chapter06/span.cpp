@@ -1,6 +1,6 @@
 // Requires C++20
-#include <version>
-#if defined(__cpp_lib_ranges)
+// #include <version>
+// #if defined(__cpp_lib_ranges)
 
 #include <gtest/gtest.h>
 
@@ -41,4 +41,4 @@ TEST(Span, ResetVector) {
   ASSERT_EQ(v, result);
 }
 
-#endif // ranges
+// #endif // ranges

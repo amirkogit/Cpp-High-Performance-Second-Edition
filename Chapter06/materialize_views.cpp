@@ -1,6 +1,6 @@
 // Requires C++20
-#include <version>
-#if defined(__cpp_lib_ranges)
+// #include <version>
+// #if defined(__cpp_lib_ranges)
 
 #include "to_vector.h"
 
@@ -48,4 +48,4 @@ TEST(MaterializeViews, IteratorQualityPreserved) {
   ASSERT_EQ(vec, result);
 }
 
-#endif // ranges
+// #endif // ranges
