@@ -21,9 +21,13 @@ auto is_square(const Rectangle<T>& r) {
 TEST(TemplateClass, FloatAndIntSquare) {
   auto r1 = Rectangle<float>{2.0f, 2.0f, 4.0f, 4.0f};
   auto r2 = Rectangle{-2, -2, 4, 4};
+  auto r3 = Rectangle {3,5, 10,4};
 
   ASSERT_EQ(typeid(Rectangle<float>), typeid(r1));
   ASSERT_EQ(typeid(Rectangle<int>), typeid(r2));
+  ASSERT_EQ(typeid(Rectangle<int>), typeid(r3));
+
   ASSERT_TRUE(is_square(r1));
   ASSERT_TRUE(is_square(r2));
+  ASSERT_FALSE(is_square(r3));
 }

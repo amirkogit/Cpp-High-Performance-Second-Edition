@@ -55,3 +55,12 @@ TEST(Tuple, CustomTuple) {
   ASSERT_EQ("hi", str);
   ASSERT_EQ(true, boolean);
 }
+
+// Example to unroll the tuple
+TEST(Tuple, UnrollTuple)
+{
+  auto t = std::tuple(1, true, std::string {"Jedi"});
+  std::cout << std::get<0>(t) << " ";
+  std::cout << std::get<1>(t) << " ";
+  std::cout << std::get<2>(t) << " ";
+}

@@ -8,6 +8,14 @@ TEST(TypeTraits, Categories) {
   const auto is_float_or_double = std::is_floating_point_v<decltype(3.f)>;
 
   static_assert(is_float_or_double);
+  ASSERT_EQ(is_float_or_double, true);
+
+  const auto is_float = std::is_floating_point_v<decltype("sometext")>;
+  ASSERT_EQ(is_float, false) << "This should be of type std::string";
+
+  // what is the version for string checking?  
+  // const auto is_string = std::u32string<decltype("somestring")>;
+  // ASSERT_EQ(is_string, true);
 }
 
 TEST(TypeTraits, UserDefinedTypes) {

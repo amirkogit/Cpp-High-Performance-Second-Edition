@@ -36,4 +36,8 @@ TEST(AbbreviatedFunctionTemplates, ExplicitTemplateParameters) {
   auto x = pow_n_func(3, 3); // x is an int
   ASSERT_EQ(27, x);
   ASSERT_EQ(typeid(int), typeid(x));
+
+  auto y = pow_n_func(2.1, 3); // y is a double -- not a float
+  ASSERT_FLOAT_EQ(9.261f, y);
+  ASSERT_EQ(typeid(double), typeid(y)); // must pass typeid(double)
 }

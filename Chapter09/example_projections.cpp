@@ -1,6 +1,6 @@
 // Requires C++20
-#include <version>
-#if defined(__cpp_lib_ranges)
+// #include <version>
+// #if defined(__cpp_lib_ranges)
 
 #include <ranges>
 #include <string>
@@ -70,4 +70,4 @@ TEST(Projections, CompareUsingTieAndRanges) {
   ASSERT_EQ(12981, players.front().score_);
 }
 
-#endif // ranges
+// #endif // ranges

@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <tuple>
+#include <array>
 
 #include <gtest/gtest.h>
 
@@ -59,6 +60,16 @@ template <typename... Ts> auto make_string(const Ts&... values) {
   return sstr.str();
 }
 
+// To support parameter of only one type, we can use std::array instead of std::tie
+template<typename... Ts> auto make_string_homo(const Ts& ... values) {
+  auto ss = std::ostringstream{};
+  auto a = std::array{values...};
+  for (auto && v : a) {
+    ss << v;
+  }
+  return ss.str();
+}
+
 TEST(VariadicTemplateParameterPack, MakeString) {
   // Without variadic pack
   auto str1 = make_string(42);
@@ -76,4 +87,16 @@ TEST(VariadicTemplateParameterPack, MakeString) {
   // With variadic pack
   auto str5 = make_string(42, "hi", true, false, 42.0f);
   ASSERT_EQ("42hi1042", str5);
+}
+
+TEST(VariadicTemplateParameterPack, MakeStringWithCommonTypeOnly)
+{
+  auto str1 = make_string_homo("A", "B", "C");
+  ASSERT_EQ("ABC", str1);
+
+  auto str2 = make_string_homo(100,200,300);
+  ASSERT_EQ("100200300", str2);
+
+  // compile error -- different types
+  //auto str3 = make_string_homo(100, "hello", 4.2f);
 }
