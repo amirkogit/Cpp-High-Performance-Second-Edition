@@ -8,7 +8,7 @@
 #include <version>
 
 
-#if defined(__cpp_lib_ranges)
+// #if defined(__cpp_lib_ranges)
 #include <ranges>
 TEST(PipeOperator, RangesExample) {
   const auto r = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
@@ -22,7 +22,7 @@ TEST(PipeOperator, RangesExample) {
   ASSERT_EQ(*it++, 5);
   ASSERT_EQ(it, std::end(odd_positive_numbers));
 }
-#endif // ranges
+// #endif // ranges
 
 
 template <typename T> struct ContainsProxy { const T& value_; };
@@ -49,3 +49,9 @@ TEST(PipeOperator, Strings) {
   ASSERT_TRUE(has_silo);
 }
 
+TEST(PipeOperator, Numbers2) {
+  auto numbers = std::vector<int> {1,3,5,6,7,9};
+  auto seven = 7;
+  bool has_seven = numbers | contains(seven);
+  ASSERT_TRUE(has_seven);
+}

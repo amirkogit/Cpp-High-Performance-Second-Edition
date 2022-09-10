@@ -29,3 +29,15 @@ TEST(FutureAndPromises, Divide) {
 
   t.join();
 }
+
+TEST(FutureAndPromises, DivideByZero) {
+  std::promise<int> p;
+  std::thread t{divide, 50, 0, std::ref(p)};
+
+  auto f = p.get_future();
+  auto result = int{0};
+
+  ASSERT_THROW({ result = f.get(); }, std::runtime_error);
+
+  t.join();
+}

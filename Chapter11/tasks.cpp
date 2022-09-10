@@ -28,3 +28,14 @@ TEST(Tasks, Divide) {
   ASSERT_EQ(45 / 5, result);
   t.join();
 }
+
+TEST(Tasks, DividByZero) {
+  std::packaged_task<decltype(divide)> task(divide);
+  auto f = task.get_future();
+  std::thread t(std::move(task), 50, 0);
+  auto result = int {0};
+
+  ASSERT_THROW({result = f.get();}, std::runtime_error);
+  //ASSERT_EQ(50 / 0, result); //warning: division by zero [-Wdiv-by-zero] // Program will crash: Floating point exception (core dumped)
+  t.join();
+}
