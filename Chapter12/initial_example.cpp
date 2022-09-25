@@ -24,7 +24,7 @@ Generator<int> take_until(Generator<int>& gen, int value) {
 
 TEST(GeneratorInitialExamlpe, IotaAndTakeUntil) {
   auto i = iota(2);
-  auto t = take_until(i, 5);
+  auto t = take_until(i, 15);
   for (auto v : t) {          // Pull values
     std::cout << v << ", ";
   }

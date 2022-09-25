@@ -1,7 +1,7 @@
 // Requires C++20
 // Compile using gcc 10: g++ -std=c++2a -O3 -lpthread -Wall
-#include <version>
-#if defined(__cpp_lib_atomic_ref) && defined(__cpp_lib_jthread)
+// #include <version>
+// #if defined(__cpp_lib_atomic_ref) && defined(__cpp_lib_jthread)
 
 #include <gtest/gtest.h>
 
@@ -52,4 +52,4 @@ TEST(Atomics, AtomicReferences) {
 
 } // namespace
 
-#endif // atomic ref && jthread
+//#endif // atomic ref && jthread
